@@ -1,10 +1,13 @@
 name: R-CI-Test
 
-on: [push]
+on:
+  push:
+    branches: [main]
 
 jobs:
   run-r-script:
     runs-on: ubuntu-latest
+    container: rocker/r-ver:4.4.0
 
     steps:
       - uses: actions/checkout@v4
@@ -17,5 +20,5 @@ jobs:
       - name: Restore packages from renv.lock
         run: Rscript -e 'renv::restore(confirm = FALSE)'
 
-      - name: Run R script(s)
-        run: Rscript test.R
+      - name: Run tests
+        run: Rscript -e 'testthat::test_dir("tests/testthat")'
