@@ -1,6 +1,6 @@
 # test_basic.R
 
-source(file.path(getwd(), "hello.R"))
+source("../../hello.R")
 
 testthat::test_that("say_hello returns correct message", {
   result <- say_hello("ChatGPT")
