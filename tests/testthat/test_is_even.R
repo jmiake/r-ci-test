@@ -1,4 +1,4 @@
-source("../../hello.R")
+source("hello.R")  # 相対パス修正
 
 testthat::test_that("is_even identifies even numbers", {
   testthat::expect_true(is_even(2))
