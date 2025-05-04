@@ -1,12 +1,20 @@
+name: R-CI-Test
+
+on:
+  push:
+    branches: [main]
+
 jobs:
   run-r-script:
     runs-on: ubuntu-latest
     container: rocker/r-ver:4.4.0
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Check out code
+        uses: actions/checkout@v4
 
       - name: Install renv
-        run: Rscript -e 'install.packages("renv")'
+        run: Rscript -e 'install.packages("renv", repos = "https://cloud.r-project.org")'
 
       - name: Restore packages from renv.lock
         run: Rscript -e 'renv::restore(confirm = FALSE)'
