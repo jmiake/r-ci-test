@@ -1,4 +1,4 @@
-source(file.path(dirname(dirname(dirname(sys.frame(1)$ofile))), "hello.R"))
+source(file.path(getwd(), "hello.R"))
 
 testthat::test_that("add_numbers works correctly", {
   testthat::expect_equal(add_numbers(2, 3), 5)
