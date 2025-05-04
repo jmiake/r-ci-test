@@ -1,4 +1,4 @@
-source("hello.R")  # 相対パス修正
+source(file.path(dirname(dirname(dirname(sys.frame(1)$ofile))), "hello.R"))
 
 testthat::test_that("add_numbers works correctly", {
   testthat::expect_equal(add_numbers(2, 3), 5)

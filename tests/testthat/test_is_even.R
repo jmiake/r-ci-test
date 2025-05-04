@@ -1,4 +1,4 @@
-source("hello.R")  # 相対パス修正
+source(file.path(dirname(dirname(dirname(sys.frame(1)$ofile))), "hello.R"))
 
 testthat::test_that("is_even identifies even numbers", {
   testthat::expect_true(is_even(2))

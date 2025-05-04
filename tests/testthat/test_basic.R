@@ -1,6 +1,6 @@
 # test_basic.R
 
-source("hello.R")  # 相対パス修正
+source(file.path(dirname(dirname(dirname(sys.frame(1)$ofile))), "hello.R"))
 
 testthat::test_that("say_hello returns correct message", {
   result <- say_hello("ChatGPT")
